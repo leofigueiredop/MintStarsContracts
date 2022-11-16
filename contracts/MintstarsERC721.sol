@@ -46,10 +46,11 @@ contract MintstarsNFT is
 
     function exportItem(
         string calldata tokenURI,
-        string calldata msNftId,
+        string memory msNftId,
         string calldata userId,
         int256 tokenId,
         uint256 timestamp,
+        address target,
         uint8 v,
         bytes32 r,
         bytes32 s
@@ -59,7 +60,7 @@ contract MintstarsNFT is
             // build params
             bytes32 msgHash = keccak256(
                 abi.encodePacked(
-                    msg.sender,
+                    target,
                     '/',
                     userId,
                     '/',
@@ -78,26 +79,26 @@ contract MintstarsNFT is
         if (tokenId > -1 && this.ownerOf(uint256(tokenId)) == address(this)) {
             super._transfer(
                 address(this),
-                msg.sender,
+                target,
                 uint256(tokenId)
             );
             emit NFTExported(
                 uint256(tokenId),
                 userId,
-                msg.sender,
+                target,
                 msNftId
             );
             return uint256(tokenId);
         } else {
             uint256 newItemId = _tokenIdsCounter.current();
-            _mint(msg.sender, newItemId);
+            _mint(target, newItemId);
             _setTokenURI(newItemId, tokenURI);
             _tokenIdsCounter.increment();
             
             emit NFTExported(
                 newItemId,
                 userId,
-                msg.sender,
+                target,
                 msNftId
             );
             return newItemId;

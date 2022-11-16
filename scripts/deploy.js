@@ -9,13 +9,13 @@ const hre = require("hardhat");
 async function main() {
 
 
-  const MS_SplitPayment = await hre.ethers.getContractFactory("MS_SplitPayment");
-  const ms_SplitPayment = await MS_SplitPayment.deploy();
+  const Helix_SplitPayment = await hre.ethers.getContractFactory("Helix_SplitPayment");
+  const helix_SplitPayment = await Helix_SplitPayment.deploy();
 
-  await ms_SplitPayment.deployed();
+  await helix_SplitPayment.deployed();
 
   console.log(
-    `ms_SplitPayment deployed to ${ms_SplitPayment.address}`
+    `Helix_SplitPayment deployed to ${helix_SplitPayment.address}`
   );
 }
 
