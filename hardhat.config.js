@@ -24,7 +24,8 @@ module.exports = {
     polygon: {
       url: 'https://polygon-rpc.com',
       chainId: 137,
-      accounts: ['b2640088b2fb0c3484de1add4c41f9814f225d91788b5cdf58869d116803ad3c'],//pvt housemagOwner
+      accounts: ['8c0d4aafbf6364ca827b8e3b2a5533669e6397dc3aa9d9b832a9d7e7a251fa6d'],//pvt hlxowner
+      //accounts: ['b2640088b2fb0c3484de1add4c41f9814f225d91788b5cdf58869d116803ad3c'],//pvt housemagOwner
       //accounts: ['e748b82c30b6e373854abbe84b3e5ba1d4cdeb666e2ea4aa76d3da2a4f4d59de'],//magic
       // gasPrice:100000000000, gasLimit: 1000000
     },
